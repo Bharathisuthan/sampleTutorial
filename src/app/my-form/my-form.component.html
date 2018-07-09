@@ -1,0 +1,22 @@
+<form [formGroup]="myForm">
+  <label>First Name:
+    <input type="text" name="firstName" formControlName="firstName">
+  </label>
+  <label>First Name:
+    <input type="text" name="lastName" formControlName="lastName">
+  </label>
+  <button (click)="submit()">Submit</button>
+</form>
+<input #box (keyup)="0">
+<p>{{box.value}}</p>
+<button (click)="patchValues()">Patch Values</button>
+<p>Form value: {{ myForm.value | json }}</p>
+<ul>
+  <li *ngFor="let comment of comments" style="cursor: pointer; padding-top: 15px;">{{comment.id}} ----- {{comment.comment}}
+    <button (click)="getCommentById(comment.id)">View</button>
+    <button (click)="deleteComment(comment.id)">Delete</button>
+    <button (click)="updateComment(comment)">update</button>
+  </li>
+</ul>
+<input type="text" name="commentField" [(ngModel)]="commentField">
+<button (click)="postComment()">Post Comment</button>
